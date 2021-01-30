@@ -1,0 +1,8 @@
+body {
+    /* background-image: url('../img/background.jpg'); */
+    background-image: url('http://localhost:3000/img/background.jpg');
+    background-color: #fa2a00;
+    background-blend-mode: screen;
+    background-size: 1200px;
+    font-size: x-large;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="css/style.css"
+      type="text/css"
+      media="screen"
+    />
+  </head>
+
+  <body>
+    <h1>Welcome to Atanas food orders</h1>
+    <form method="POST" action="/PlaceOrder">
+      <table>
+        <tr>
+          <td><label for="tbl">Table Number</label></th>
+          <td><input id="tbl" type="number" name="tableNumber" /></th>
+        </tr>
+        <tr>
+          <td><label for="bgr">Burger &amp; chips</label></td>
+          <td><input id="bgr" type="number" name="BurgerMeal" /></td>
+        </tr>
+        <tr>
+          <td><label for="fsh">Fish &amp; chips</label></td>
+          <td><input type="number" id="fsh" name="FishMeal" /></td>
+        </tr>
+        <tr>
+          <td><label for="las">Lasagne</label></td>
+          <td><input type="number" id="las" name="Lasagne" /></td>
+        </tr>
+        <tr>
+          <td><label for="brs">Beers</label></th>
+          <td><input type="number" id="brs" name="Beers" /></th>
+        </tr>
+        <tr>
+          <td><label for="cks">Cokes</label></th>
+          <td><input type="number" id="cks" name="Cokes" /></th>
+        </tr>
+      </table>
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
