@@ -71,7 +71,7 @@ function orderHTML(order){
     let filter=req.query["filter"]
     let ordersHTML=[]
     ordersHTML.push("<html><head><link type='text/css' rel='stylesheet' href='/css/style.css'></head><body>")
-    ordersHTML.push('<table>')
+    ordersHTML.push('<table id="orders-table">')
     for (const order of global.orders){
       if (filter==null || order.state==filter){
         ordersHTML.push(orderHTML(order))    
