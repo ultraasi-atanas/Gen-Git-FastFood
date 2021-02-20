@@ -1,3 +1,5 @@
+'use strict'; 
+
 const express = require('express')
 const app = express()
 const port = 3000  // we choose to listen here
@@ -22,7 +24,7 @@ app.post('/PlaceOrder', (req, res) => {
     order.items = req.body
     order.number = global.orders.length + 1   //Note, the order number is 1 more than the orders index in the array (because we don't want an order #0)
     global.orders.push(order)
-    res.send('<html><body>Order Accepted #' + order.number + '</body></html>')
+    res.send('<html><body>Thank you for your Order. Order Accepted #' + order.number + '</body></html>')
 })
 
 app.get('/view', (req, res) => {  //http request/response
@@ -34,20 +36,20 @@ app.get('/setState', (req, res) => {
     outputOrders(req, res)
 })
 
-app.get('/', (req, res) => {  //http request/response
-    res.send('Hello world!')
+app.get('/', (req, res) => {  //Root Endpoint http request/response
+    res.send('<html><head><link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/></head><body><h1>Hello World!</h1><a href="./PlaceOrder.html">Place an order here</a></body></html>')
 })
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
 
-path = require("path")
+const path = require("path")
 app.use(express.static(path.join(__dirname, 'public')));
 
 // it’s telling express to serve static content out of the public folder - we need to create a new folder and call it public
 
-function orderHTML(order){  
+function generateAllOrdersHTML(order){  
     let elements=[]
     elements.push("<tr>")
     elements.push("<td>Order#" + order.number + "</td>")
@@ -74,7 +76,7 @@ function orderHTML(order){
     ordersHTML.push('<table id="orders-table">')
     for (const order of global.orders){
       if (filter==null || order.state==filter){
-        ordersHTML.push(orderHTML(order))    
+        ordersHTML.push(generateAllOrdersHTML(order))    
       }
     }
     ordersHTML.push('</table>')
